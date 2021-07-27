@@ -1,24 +1,25 @@
-const degreesElem = document.getElementById("degrees")
+const degreesElem = document.getElementById("degrees-input")
 const tempTypeElem = document.getElementById("temperature-type")
 const convertButton = document.getElementById("convertButton")
+const convertedResult = document.getElementById("convertedResult")
 
 const conversions = {
     'fahrenheit': function convert(tempFahrenheit) {
         return {
-            'celsius': ((tempFahrenheit - 32) * 5/9),
-            'kelvin': ((tempFahrenheit - 32) * 5/9 + 273.15)
+            'celsius': Number(((tempFahrenheit - 32) * 5/9)),
+            'kelvin': Number(((tempFahrenheit - 32) * 5/9 + 273.15))
         }
     },
     'celsius': function convert(tempCelsius) {
         return {
-           'fahrenheit': ((tempCelsius * 9/5) + 32), 
-           'kelvin': (tempCelsius + 273.15)
+           'fahrenheit': Number(((tempCelsius * 9/5) + 32)), 
+           'kelvin': Number((tempCelsius + 273.15))
         }
     },
     'kelvin': function convert(tempKelvin) {
         return {
-            'fahrenheit': ((tempKelvin - 273.15) * 9/5 + 32), 
-            'celsius': (tempKelvin - 273.15)
+            'fahrenheit': Number(((tempKelvin - 273.15) * 9/5 + 32)), 
+            'celsius': Number((tempKelvin - 273.15))
         }
     }
 }
@@ -26,15 +27,20 @@ const conversions = {
 const tempSymbols = {
     'fahrenheit': '°F',
     'celsius': '°C',
-    'kelvin': '°K'
+    'kelvin': 'K'
 }
 
 const convertTemperature = () => {
-    const degrees = degreesElem.value
+    const degrees = Number(degreesElem.value)
     const tempType = tempTypeElem.value
+    let resultHTML = ''
+    let convertedTemps = conversions[tempType](degrees)
 
-    console.log(conversions[tempType](degrees))
+    for (let tempTypeKey of Object.keys(convertedTemps)) {
+        console.log(convertedTemps)
+        resultHTML += `<div>${convertedTemps[tempTypeKey].toFixed(2)}${tempSymbols[tempTypeKey]}</div>`
+    }
+    convertedResult.innerHTML = resultHTML
 }
-console.log(Number(conversions.fahrenheit(72).celsius.toFixed(4)))
 
 convertButton.addEventListener('click', convertTemperature)

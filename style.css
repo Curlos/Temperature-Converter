@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+* { box-sizing: border-box }
+
+body {
+    font-family: Staatliches, sans-serif;
+    font-size: 20px;
+}
+
+label {
+    color: #666666;
+}
+.container {
+    display: inline-block;
+    
+}
+
+.degrees-input, .temperature-type {
+    border: 1px solid #666666;
+    border-radius: 0.5rem;
+    padding: 0.65rem;
+}
+
+.result {
+    color: #666666;
+}
+
+.convertedResult {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.convertButton {
+    color: white;
+    background-color: #1E7CFF;
+    border-radius: 0.5rem;
+    padding: 0.65rem;
+    border: none;
+    font-size: 17px;
+}
+
+.convertButton:hover {
+    background-color: #1860BF;
+    cursor: pointer;
+}
+
+.convertButton:active {
+    transform: translateY(0.1em);
+    border: white 2px solid;
+}

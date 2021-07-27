@@ -10,24 +10,27 @@
 </head>
 <body>
     <div>
-        <div class="header">
-            <span class="header-text">Temperature Converter</span>
-            <span class="filler"></span>
-        </div>
-
-        <label for="degrees">Degrees</label>
-        <input type="number" class="degrees" id="degrees" value="32">
-
-        <div class="selection">
-            <label for="sides">Type</label>
-            <select name="temperature-type" class="temperature-type" id="temperature-type">
-                <option value="fahrenheit">Fahrenheit</option>
-                <option value="celsius">Celsius</option>
-                <option value="kelvin">Kelvin</option>
-            </select>
-        </div>
+        <h1 class="header-text">Temperature Converter</h1>
+            <div class="degrees-container container">
+                <label for="degrees">Degrees</label>
+                <input type="number" class="degrees-input" id="degrees-input" value="32">
+            </div>
+    
+            <div class="selection-container container">
+                <label for="sides">Type</label>
+                <select name="temperature-type" class="temperature-type" id="temperature-type">
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="celsius">Celsius</option>
+                    <option value="kelvin">Kelvin</option>
+                </select>
+            </div>
 
         <button class="convertButton" id="convertButton">Convert</button>
+        
+        <div class="result" id="result">
+            Result
+            <div class="convertedResult" id="convertedResult"></div>
+        </div>
     </div>
     <!-- Script -->
     <script src="script.js"></script>
